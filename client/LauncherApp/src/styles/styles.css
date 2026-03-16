@@ -1,0 +1,84 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+h1, h2{
+    text-align: center;
+}
+nav,.nav{
+    background-color: #1f2937;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold
+}
+nav a:hover{
+    color: blue;
+}
+.search{
+    background-color: white;
+    color: aquamarine;
+    width: 150px;
+}
+.filter{
+    background-color: orange;
+    color: black;
+    width: 200px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 20px;
+}
+thead{
+    background-color: #1f2937;
+    color: white;
+}
+th,td{
+    padding: 12px;
+    text-align: center;
+    color: blue;
+}
+th{
+    font-weight: bold;
+}
+button{
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 14px;
+}
+button:hover{
+    background-color: #1d4ed8;
+}
+form{
+    background: white;
+    padding: 30px;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0,1);
+}
+
+input ,select{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border:1px solid #ccc
+    
+}
+input:focus,select:focus{
+    outline: none;
+    border-color: #2563eb;
+} 

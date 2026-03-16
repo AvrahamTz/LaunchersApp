@@ -1,6 +1,8 @@
-import {BrowserRouter,Route} from "react-router"
+import {BrowserRouter,Routes,Route} from "react-router"
 import HomePage from "./pages/HomePage"
 import LauncherDetailsPage from "./pages/LauncherDetailsPage"
+import AddLauncherPage from "./pages/AddLauncherPage"
+import "./styles/styles.css"
 function App() {
 
 
@@ -8,8 +10,11 @@ function App() {
 return (
     <>
     <BrowserRouter>
-    <Route path = "/home" element = {<HomePage/>} ></Route>
-    <Route path = "/launcher/:id" element = {<LauncherDetailsPage/>}></Route>
+    <Routes>
+      <Route path ="/adding" element ={<AddLauncherPage/>}></Route>
+      <Route path = "/home" element = {<HomePage/>} ></Route>
+      <Route path = "/launcher/:id" element = {<LauncherDetailsPage/>}></Route>
+    </Routes>
     </BrowserRouter>
     </>
   )

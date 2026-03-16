@@ -1,5 +1,11 @@
 import {MongoClient} from "mongodb";
-
+import {config} from 'dotenv'
+config()
 const client = new MongoClient(process.env.MONGO);
-client.connect();
-export const db = client.db("launchers data");
+try {
+    await client.connect();
+    console.log("DB connect")
+} catch (err) {
+    console.error(err)
+}
+export const db = client.db("IDF_TEST");

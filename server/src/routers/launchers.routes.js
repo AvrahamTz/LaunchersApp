@@ -3,7 +3,8 @@ import { addALauncher, deleteALauncher, getALauncher, getAllLaunchers } from "..
 const router = express.Router();
 
 router.get("/",getAllLaunchers);
-router.get("/id",getALauncher);
+router.get("/:id",getALauncher);
 router.post("/",addALauncher);
 router.delete("/:id",deleteALauncher);
 
+export default router

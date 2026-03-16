@@ -24,7 +24,7 @@ export default function HomePage() {
         const matchFilter = filter ? launcher.rocketType === filter:true
         return matchSearch && matchFilter
     })
-
+    if (loading) return <p>loading...</p>
   return (
     <div>
         <div>
@@ -43,14 +43,16 @@ export default function HomePage() {
             <tr>RocketType</tr>
             <tr>Latitude</tr>
             <tr>Longitude</tr>
+            <tr>City</tr>
         </thead>
         <tbody>
         {data.map((u)=>{
             <tr key={u._id}>
               <td>{u.name}</td>
               <td>{u.rocketType}</td>
-              <td>{l.latitude}</td>
-              <td>{l.longitude}</td>
+              <td>{u.latitude}</td>
+              <td>{u.longitude}</td>
+              <td>{u.city}</td>
               <Link to={`/launcher/:${u._id}`}>Details</Link>
             </tr>
         })}

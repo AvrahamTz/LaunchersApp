@@ -1,6 +1,7 @@
 import express from 'express';
 import {config} from 'dotenv';
 import cors from 'cors';
+import LaunchersRoutes from './routers/launchers.routes.js'
 config();
 
 const app = express();

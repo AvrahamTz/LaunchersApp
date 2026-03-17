@@ -5,32 +5,40 @@ export default function LauncherDetailsPage() {
     const {id} = useParams()
     const [launcher,setLauncher] = useState([])
     
-    useEffect(() =>{
-        fetch(`http://localhost:3000/api/launchers/${id}`)
-        .then(res => res.json())
-        .then(data =>{ 
-            setLauncher(data)})
-        .catch(()=> console.log("cannot get this launcher details")
-        ),[]})
+   useEffect(() => {
+    fetch(`http://localhost:3000/api/launchers/${id}`)
+    .then(res => res.json())
+    .then(data => {
+      setLauncher([data])
+    })
+    .catch(() => console.log("cannot get this launcher details"))
+    }, [id])
         const deleteLauncher = async () =>{
-        await fetch(`http://localhost:3000/api/launchers/${id}`,{
-            method: 'DELETE',})
-        .then(res => res.json())
-        .then(data =>{console.log(data);})
-        .catch(()=> console.log("cannot get this launcher details")
-        )}
+        try {
+            const res = await fetch(`http://localhost:3000/api/launchers/${id}`,{
+                method: 'DELETE',})
+            const data = await res.json()
+            console.log(data);
+            
+        } catch (error) {
+            console.error(error)
+        }
+        
+        }
   return (
     <div>
         <table>
         <thead>
-            <tr>Name</tr>
-            <tr>RocketType</tr>
-            <tr>Latitude</tr>
-            <tr>Longitude</tr>
-            <tr>City</tr>
+            <tr>
+            <th>Name</th>
+            <th>RocketType</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>City</th>
+            </tr>
         </thead>
         <tbody>
-            {launcher.map((l)=>{
+            {launcher.map((l)=>(
                 <tr key={l._id}>
                     <td>{l.name}</td>
                     <td>{l.rocketType}</td>
@@ -38,7 +46,7 @@ export default function LauncherDetailsPage() {
                     <td>{l.longitude}</td>
                     <td>{l.city}</td>
                 </tr>
-            }
+            )
 
             )}
             

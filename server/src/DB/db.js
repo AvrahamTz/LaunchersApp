@@ -22,6 +22,6 @@ Dbinit = async ()=>{
         if(initAdmin){
             console.log("admin created sucssefully");
         }
-    }
+    }return 
 }
 export const db = client.db("IDF_TEST");

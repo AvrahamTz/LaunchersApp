@@ -60,7 +60,7 @@ export default function HomePage() {
                             <td>{u.latitude}</td>
                             <td>{u.longitude}</td>
                             <td>{u.city}</td>
-                            <Link to={`/launcher/${u._id}`}>Details</Link>
+                            <Link className="details"to={`/launcher/${u._id}`}>Details</Link>
                         </tr>
                     )
                 })}

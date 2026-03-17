@@ -119,3 +119,7 @@ input:focus,select:focus{
 .error{
     color: red;
 }
+.details{
+    background-color: green;
+    color: red;
+}

@@ -12,6 +12,7 @@ export default function RegisterPage() {
     })
     const token =useAuthStore((s) => s.token)
     const [isEdit,setIsEdit] = useState(false)
+    const [error,setError] = useState("")
      const getUsers = async () =>{
         try {
             const res = await fetch( "http://localhost:3000/api/auth/register/users",{
@@ -25,7 +26,7 @@ export default function RegisterPage() {
         }
         useEffect(()=>{
             getUsers()
-        },[])
+        },[])}
         
     const submit = async (e) =>{
         e.preventDeafult()
@@ -53,12 +54,12 @@ export default function RegisterPage() {
             getUsers()
             
         } catch (error) {
-                console.error(error)
+                setError(error.message)
         }}
         
     const deleteUser = async (id) =>{
         try {
-            const res = await fetch( "http://localhost:3000/api/auth/register/delete",{
+            const res = await fetch( `http://localhost:3000/api/auth/register/delete/${id}`,{
                 method: 'DELETE',headers:{Authorization: `Bearer ${token}`}}
             )
             const data =await res.json()
@@ -66,7 +67,7 @@ export default function RegisterPage() {
             getUsers()
         } catch (error) {
             console.error(error)
-        }
+        }}
         const editUser = (user) =>{
             setForm({
                 id:user._id,
@@ -97,6 +98,7 @@ export default function RegisterPage() {
                     {/* not adding Admin because you can't add more of the same role*/}
             </select>
                 <button>{isEdit ? "Update" : "Create"}</button>
+                {error &&  <p className="error">{error}</p>}
             </form>
             <table>
                 <thead>
@@ -108,7 +110,7 @@ export default function RegisterPage() {
                 </tr>
             </thead>
             <tbody>
-                {filteredData.map((u) => {
+                {users.map((u) => {
                     return (
                         <tr key={u._id}>
                             <td>{u.username}</td>
@@ -128,4 +130,4 @@ export default function RegisterPage() {
         
  </div>
   )
-}}}
+}

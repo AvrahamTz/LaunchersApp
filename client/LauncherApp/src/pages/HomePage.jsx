@@ -32,9 +32,6 @@ export default function HomePage() {
     if (loading) return <p>loading...</p>
     return (
         <>
-            <div>
-                <Link className="nav" to={"/adding"}>addALauncher</Link>
-            </div>
             <input className="search" type="text" placeholder="search by launcher name" value={search} onChange={e => setSearch(e.target.value)} />
             <select className="filter" value={filter} onChange={e => setFilter(e.target.value)}>
                 <option value="">All</option>

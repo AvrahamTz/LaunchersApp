@@ -7,9 +7,10 @@ export default function Navbar() {
     const navigate = useNavigate()
   return (
     <div>
-        <Link className="nav" to={"/home"}>Home</Link>
+        <Link className="nav" to={"/"}>Home</Link>
         {!user && <Link className="nav" to={"/login"}>Login</Link >}
         {user?.user_type === "admin" && <Link className="nav" to={"/register"}>Register</Link>}
+        {user?.user_type === "admin" || "intel" &&<Link className="nav" to={"/add"}>addALauncher</Link> }
         {user && 
         <>
         <button onClick={alert(`${user.username} ${user.user_type}`)}>MyDetails</button>

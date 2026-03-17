@@ -6,7 +6,7 @@ export default function LauncherDetailsPage() {
     const [launcher,setLauncher] = useState([])
     
    useEffect(() => {
-    fetch(`http://localhost:3000/api/launchers/${id}`)
+    fetch(`http://localhost:3000/api/launchers/${id}`,{headers:{Authorization: `Bearer ${token}`}})
     .then(res => res.json())
     .then(data => {
       setLauncher([data])
@@ -16,7 +16,7 @@ export default function LauncherDetailsPage() {
         const deleteLauncher = async () =>{
         try {
             const res = await fetch(`http://localhost:3000/api/launchers/${id}`,{
-                method: 'DELETE',})
+                method: 'DELETE',headers:{Authorization: `Bearer ${token}`}})
             const data = await res.json()
             console.log(data);
             

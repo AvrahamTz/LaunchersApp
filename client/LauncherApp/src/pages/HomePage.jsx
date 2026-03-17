@@ -8,7 +8,7 @@ export default function HomePage() {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("");
     useEffect(() => {
-        fetch("http://localhost:3000/api/launchers")
+        fetch("http://localhost:3000/api/launchers",{headers:{Authorization: `Bearer ${token}`}})
             .then(res => res.json())
             .then(data => {
                 setData(data);
@@ -25,10 +25,10 @@ export default function HomePage() {
 
         const matchSearch = launcher.name.toLowerCase().includes(search.toLowerCase());
         const matchFilter = filter ? launcher.rocketType === filter : true
-
+         
         return matchSearch && matchFilter
     })
-    console.log({ filteredData })
+    
     if (loading) return <p>loading...</p>
     return (
         <>

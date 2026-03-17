@@ -9,7 +9,8 @@ import Navbar from "./components/Navbar"
 import LoginPage from "./pages/LoginPage"
 import ProtectedRoutes from "./components/protectedRoutes"
 import RegisterPage from "./pages/RegisterPage"
-Navbar
+import DestroyedPage from "./pages/DestroyedPage"
+DestroyedPage
 function App() {
     const setUser = useAuthStore(s => s.setUser);
     const token = useAuthStore(s => s.token);
@@ -57,6 +58,11 @@ return (
         <Route path = "/register" element = {
         <ProtectedRoutes allowed={["admin"]}>
         <RegisterPage/>
+        </ProtectedRoutes>}>
+        </Route>
+         <Route path = "/destroyed" element = {
+        <ProtectedRoutes allowed={["airMilatry"]}>
+        <DestroyedPage/>
         </ProtectedRoutes>}>
         </Route>
     </Routes>
